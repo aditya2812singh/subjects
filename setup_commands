@@ -1,0 +1,7 @@
+To edit notes in VS code:
+
+1. Open VS Code and open SUBJECTS folder
+2. Type cmd-shift-p to enter command mode
+3. Type markdown-editor: Open with markdown editor
+4. OR select open a markdown file
+
