@@ -1,2 +1,5 @@
 Starting the SV with book/cadence
-![alt text](image.png)
+ctrl+shift+p
+
+
+![](assets/20250127_222608_image.png)
