@@ -5,7 +5,7 @@ SV is an extension of Verilog-2001
 
 ---
 
-Data Types:
+==>                                                     Data Types:
 
 ---
 
