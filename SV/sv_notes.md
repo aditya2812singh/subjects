@@ -1,8 +1,12 @@
 **Starting the SV with book/cadence**
 
+To open the editor in md mode:
+ctrl+shift+p
+
+---
+
+
+
 **Question:**
 
 Answer:
-ctrl+shift+p
-
-![](assets/20250127_222608_image.png)
