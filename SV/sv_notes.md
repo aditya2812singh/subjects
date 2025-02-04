@@ -21,7 +21,7 @@ Data Types:
 | logic    |             |                  | 4 state      |
 
 Verilog has Strict Data type rules:
-▪ Variables(registers)(integer, real, reg, time) are assigned values in procedural blocks.
+▪ Variables(registers)(integer, real, reg, time) are assigned values in procedural blocks.\
 ▪ Netsare driven by continuous assignments, module inputs, module instance outputs, or primitive instances.
 
 =>These lead to the following connectivity characteristics:
