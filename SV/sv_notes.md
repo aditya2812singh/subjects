@@ -39,9 +39,10 @@ This means that module input ports must connect internally to nets, module outpu
 externally to nets, and module inoutports must connect both internally and externally to nets. Only
 module output ports can connect internally to variables.<br>
 
---> Sized Vs Unsized Literal:
+### --> Sized Vs Unsized Literal:
 
 ```// Sized literal
+//Sized Literal
 // <size>'<base><value>
 logic[5:0] databus;
 databus =6'b0; // 000000
@@ -58,4 +59,12 @@ databus = 'z;   // zzzzzz
 databus = 'x;   // xxxxxx
 ```
 
---> always_cpmb, always_latch, always_ff
+### Time Literal:
+
+Time Literals are numbers written in integer or fixed-point format, followed without a space by a time unit (fs ps ns us ms s). e.g. 3.14ps, 5ns, 1step(Note: Always 1step is allowed never 2 step etc..)
+
+timeunit:
+
+timeprecision:
+
+--> always_comb, always_latch, always_ff
