@@ -5,7 +5,7 @@ SV is an extension of Verilog-2001
 
 ---
 
-# ==>&emsp;&emsp;&emsp;&emsp;&emsp;**Data Types:**
+### ==>&emsp;&emsp;&emsp;&emsp;&emsp;**Data Types:**
 
 ---
 
@@ -37,7 +37,7 @@ SV is an extension of Verilog-2001
 
 This means that module input ports must connect internally to nets, module output ports must connect
 externally to nets, and module inoutports must connect both internally and externally to nets. Only
-module output ports can connect internally to variables.<br>
+module output ports can connect internally to variables.
 
 ### --> Sized Vs Unsized Literal:
 
@@ -67,4 +67,22 @@ timeunit:
 
 timeprecision:
 
+Inter vs Intra Delay, Time roundoffs
+
+### Procedural statement and Procedural Blocks
+
+case statement- Parallel case/Full Case, case, casex, casez, priority case, unique case, priority if, unique if, iff
+
+Full case: Does your logic cover all the cases for each and variable achieving complete assignment. Avoids inferred latches.
+Parallel Case: Are all the cases mutually exclusive? Overlapping cases can mean complex logic is involved to determine correct action.
+
+In Verilog, ? is an alias for z in numerical literals
+
+casex treats x and z as dont care <br/>
+casez treats z as dont care
+
 --> always_comb, always_latch, always_ff
+
+### Operators
+
+wildcard equality/inequality operator, inside operator
