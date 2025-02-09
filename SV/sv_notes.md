@@ -10,20 +10,23 @@ SV is an extension of Verilog-2001
 ---
 
 
-| DataType | Description | Sign             | state        |
-| :--------- | ------------- | ------------------ | -------------- |
-| bit      | 1bit        | default unsigned | 2 state(0/1) |
-| byte     | 8bit        | default signed   |              |
-| shortint | 16bit       | default signed   |              |
-| int      | 32bit       | default signed   |              |
-| longint  | 64bit       | default signed   |              |
-| integer  |             |                  |              |
-| logic    |             |                  | 4 state      |
+| DataType | Description                                 | Sign             | state        |
+| :--------- | --------------------------------------------- | ------------------ | -------------- |
+| bit      | 1bit                                        | default unsigned | 2 state(0/1) |
+| byte     | 8bit                                        | default signed   | 2 state      |
+| shortint | 16bit                                       | default signed   | 2 state      |
+| int      | 32bit                                       | default signed   | 2 state      |
+| longint  | 64bit                                       | default signed   | 2 state      |
+| integer  | 32bit                                       | default signed   | 4 state      |
+| logic    | 1bit                                        | default unsigned | 4 state      |
+| reg      | 1bit                                        | default unsigned | 4 state      |
+| wire     | 1bit                                        | default unsigned | 4 state      |
+| time     | 64bit                                       | default unsigned | 4 state      |
+| real     | double precision<br /><br /> floating point |                  | 2 state      |
 
 Verilog has Strict Data type rules:<br>
 ▪ Variables(registers)(integer, real, reg, time) are assigned values in procedural blocks.<br>
 ▪ Netsare driven by continuous assignments, module inputs, module instance outputs, or primitive instances.<br>
-
 
 =>These lead to the following connectivity characteristics:<br>
 ▪ Module inputs are always nets.<br>
