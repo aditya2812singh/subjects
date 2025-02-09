@@ -41,8 +41,8 @@ module output ports can connect internally to variables.<br>
 
 --> Sized Vs Unsized Literal:
 
-// Sized literal
-// \<size\>'\<base\>\<value\>
+```// Sized literal
+// <size>'<base><value>
 logic[5:0] databus;
 databus =6'b0; // 000000
 databus =6'b1; // 000001
@@ -50,11 +50,12 @@ databus =6'bz; // zzzzzz
 databus =6'bx; // xxxxxx
 databus =4'bx; // 00xxxx
 // Unsized literal
-// '\<value\>
+// '<value>
 logic[5:0] databus;
 databus = '0;   // 000000
 databus = '1;   // 111111
 databus = 'z;   // zzzzzz
 databus = 'x;   // xxxxxx
+```
 
 --> always_cpmb, always_latch, always_ff
