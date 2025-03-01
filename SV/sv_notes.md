@@ -39,6 +39,26 @@ This means that module input ports must connect internally to nets, module outpu
 externally to nets, and module inoutports must connect both internally and externally to nets. Only
 module output ports can connect internally to variables.
 
+### Net Types:
+
+wire/tri are functionally identical and share the same syntax, they are given different names to help designers convey the intended purpose of the net within the model.
+
+
+| Net Type | Description                                                   |                                                                            |
+| ---------- | --------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| wire     | Connects elements with continuous assignment                  | ![](https://www.chipverify.com/images/verilog/wire_tri_truth_table.png)    |
+| tri      | Connects elements with multiple drivers                       |                                                                            |
+| wor      | Creates wired OR configurations                               | ![](https://www.chipverify.com/images/verilog/wor_trior_truth_table.png)   |
+| trior    | Creates wired OR configurations with multiple drivers         |                                                                            |
+| wand     | Creates wired AND configurations                              | ![](https://www.chipverify.com/images/verilog/wand_triand_truth_table.png) |
+| triand   | Creates wired AND configurations with multiple drivers        |                                                                            |
+| tri0     | Models nets with resistive pulldown devices                   | ![](https://www.chipverify.com/images/verilog/tri0_truth_table.png)        |
+| tri1     | Models nets with resistive pullup devices                     | ![](https://www.chipverify.com/images/verilog/tri1_truth_table.png)        |
+| trireg   | Stores a value and is used to model charge storage nodes      |                                                                            |
+| uwire    | Models nets that can should be driven only by a single driver |                                                                            |
+| supply0  | Models power supply with a low level of strength              |                                                                            |
+| supply1  | Models power supply with a high level of strength             |                                                                            |
+
 ### --> Sized Vs Unsized Literal:
 
 ```// Sized literal
@@ -68,6 +88,8 @@ timeunit:
 timeprecision:
 
 Inter vs Intra Delay, Time roundoffs
+
+
 
 ### Procedural statement and Procedural Blocks
 
