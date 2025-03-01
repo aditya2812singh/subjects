@@ -44,20 +44,20 @@ module output ports can connect internally to variables.
 wire/tri are functionally identical and share the same syntax, they are given different names to help designers convey the intended purpose of the net within the model.
 
 
-| Net Type | Description                                                   |                                                                            |
-| ---------- | --------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| wire     | Connects elements with continuous assignment                  | ![](https://www.chipverify.com/images/verilog/wire_tri_truth_table.png)    |
-| tri      | Connects elements with multiple drivers                       |                                                                            |
-| wor      | Creates wired OR configurations                               | ![](https://www.chipverify.com/images/verilog/wor_trior_truth_table.png)   |
-| trior    | Creates wired OR configurations with multiple drivers         |                                                                            |
-| wand     | Creates wired AND configurations                              | ![](https://www.chipverify.com/images/verilog/wand_triand_truth_table.png) |
-| triand   | Creates wired AND configurations with multiple drivers        |                                                                            |
-| tri0     | Models nets with resistive pulldown devices                   | ![](https://www.chipverify.com/images/verilog/tri0_truth_table.png)        |
-| tri1     | Models nets with resistive pullup devices                     | ![](https://www.chipverify.com/images/verilog/tri1_truth_table.png)        |
-| trireg   | Stores a value and is used to model charge storage nodes      |                                                                            |
-| uwire    | Models nets that can should be driven only by a single driver |                                                                            |
-| supply0  | Models power supply with a low level of strength              |                                                                            |
-| supply1  | Models power supply with a high level of strength             |                                                                            |
+| Net Type | Description                                                                                                                                                                                                                                      |                                                                                                                                               |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| wire     | Connects elements with continuous assignment                                                                                                                                                                                                     | ![](https://www.chipverify.com/images/verilog/wire_tri_truth_table.png)                                                                       |
+| tri      | Connects elements with multiple drivers                                                                                                                                                                                                          |                                                                                                                                               |
+| wor      | Creates wired OR configurations                                                                                                                                                                                                                  | ![](https://www.chipverify.com/images/verilog/wor_trior_truth_table.png)                                                                      |
+| trior    | Creates wired OR configurations with multiple drivers                                                                                                                                                                                            |                                                                                                                                               |
+| wand     | Creates wired AND configurations                                                                                                                                                                                                                 | ![](https://www.chipverify.com/images/verilog/wand_triand_truth_table.png)                                                                    |
+| triand   | Creates wired AND configurations with multiple drivers                                                                                                                                                                                           |                                                                                                                                               |
+| tri0     | Models nets with resistive pulldown devices                                                                                                                                                                                                      | ![](https://www.chipverify.com/images/verilog/tri0_truth_table.png)                                                                           |
+| tri1     | Models nets with resistive pullup devices                                                                                                                                                                                                        | ![](https://www.chipverify.com/images/verilog/tri1_truth_table.png)                                                                           |
+| trireg   | Stores a value and is used to model charge storage nodes<br /> The strength of the value held by a trireg net in the capacitive state can be specified as `small`, `medium`, or `large`. This strength is determined at the time of declaration. | `trireg` net can hold its last driven value when no drivers are active. This makes it suitable for modeling storage elements like capacitors. |
+| uwire    | unidriver wire Models nets that can should be driven only by a single driver                                                                                                                                                                     |                                                                                                                                               |
+| supply0  | Models power supply with a low level of strength                                                                                                                                                                                                 |                                                                                                                                               |
+| supply1  | Models power supply with a high level of strength                                                                                                                                                                                                |                                                                                                                                               |
 
 ### --> Sized Vs Unsized Literal:
 
@@ -86,6 +86,9 @@ Time Literals are numbers written in integer or fixed-point format, followed wit
 timeunit:
 
 timeprecision:
+
+**time_unit** specifies the time unit of measurement during simulation for your design or test-bench.<br>
+**time_precision** specifies precision of time for time unit. Or in other way minimum time you are able to specify during simulation.
 
 Inter vs Intra Delay, Time roundoffs
 
