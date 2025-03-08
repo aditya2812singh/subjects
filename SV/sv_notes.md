@@ -129,6 +129,13 @@ Here is the output:
 
 Detail notes on Case Statements:
 
+
+iff: Procddural event control, always@(avec iff enable==1)
+
+Typical RTL use, always@(posedge clk iff(gate==1) or posedge rst)
+
+Typical TB use, foreach(payload[i]) begin @(negedge clk iff(!suspend)) data_out <= payload[i]; end
+
 ### Operators
 
 wildcard equality/inequality operator, inside operator
