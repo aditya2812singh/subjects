@@ -92,8 +92,6 @@ timeprecision:
 
 Inter vs Intra Delay, Time roundoffs
 
-
-
 ### Procedural statement and Procedural Blocks
 
 case statement- Parallel case/Full Case, case, casex, casez, priority case, unique case, priority if, unique if, iff
@@ -107,6 +105,29 @@ casex treats x and z as dont care <br/>
 casez treats z as dont care
 
 --> always_comb, always_latch, always_ff
+
+foreach Loop: Note here when we arite [5:0] itr start from 5 and goes till 0 but when we write [6] itr starts from 0 and goes till 5
+
+```
+module try(); 
+  int array[5:0];
+  int intarr[7];
+  initial begin
+    foreach(array[i]) begin
+      $display("array index=%d", i);
+    end
+    foreach(intarr[x]) begin
+      $display("intarr index=%d", x);
+    end
+  end
+endmodule
+```
+
+Here is the output:
+
+![](assets/20250308_125530_image.png)
+
+Detail notes on Case Statements:
 
 ### Operators
 
