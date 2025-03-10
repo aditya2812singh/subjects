@@ -129,7 +129,6 @@ Here is the output:
 
 Detail notes on Case Statements:
 
-
 iff: Procddural event control, always@(avec iff enable==1)
 
 Typical RTL use, always@(posedge clk iff(gate==1) or posedge rst)
@@ -139,3 +138,14 @@ Typical TB use, foreach(payload[i]) begin @(negedge clk iff(!suspend)) data_out 
 ### Operators
 
 wildcard equality/inequality operator, inside operator
+
+
+### OOPS
+
+When to use virtual vs pure virtual?
+
+
+| Situation                                     | Use**Virtual** or **Pure Virtual** ? |
+| ----------------------------------------------- | -------------------------------------- |
+| Base class should provide a default behavior  | `virtual function`                   |
+| Every subclass**must** implement the function | `pure virtual function`              |
