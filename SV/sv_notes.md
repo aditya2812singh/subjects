@@ -139,7 +139,6 @@ Typical TB use, foreach(payload[i]) begin @(negedge clk iff(!suspend)) data_out 
 
 wildcard equality/inequality operator, inside operator
 
-
 ### OOPS
 
 When to use virtual vs pure virtual?
@@ -149,3 +148,11 @@ When to use virtual vs pure virtual?
 | ----------------------------------------------- | -------------------------------------- |
 | Base class should provide a default behavior  | `virtual function`                   |
 | Every subclass**must** implement the function | `pure virtual function`              |
+
+Shallow Copy vs Deep Copy
+
+
+| Class Assignment                                                                                                       | Shallow Copy                                                                                                                     | Deep Copy                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| ![assignment vs shallow copy](https://verificationguide.com/images/systemverilog/class/assignment_vs_shallow_copy.png) | ![SystemVerilog Shallow Copy Limitation](https://verificationguide.com/images/systemverilog/class/limitaion_of_sahllow_copy.png) | ![SystemVerilog Deep Copy](https://verificationguide.com/images/systemverilog/class/deep_copy_systemverilog.png) |
+|                                                                                                                        |                                                                                                                                  |                                                                                                                  |
