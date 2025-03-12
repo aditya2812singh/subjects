@@ -39,3 +39,40 @@
 [19] How a sequence can be started - Execution flow.
 
 [20] How to raise and drop Objection in UVM. Why drain time is needed.
+
+
+### Question to Cover:Intermediate
+
+[1] Concept of Domain synchronization in UVM. Why it is needed. Use of sync / unsync construct. Why scheduling is needed in UVM.
+
+[2] Run time phases of UVM. What are their advantages and when they can be used. How to implement custom phase or user defined phases in UVM.
+
+[3] Difference between p_sequencer and m_sequencer. Reason of existance of m_sequencer in UVM.
+
+[4] How to inject errors in a UVM testbench and verify the functionality and robustness.
+
+[5] What is phase_ready_to_end method in objection in UVM. Is it required to raise/drop objection in UVM in every sequence and component.
+
+[6] What are the different ways of configuring a verification environment in UVM. Different methods apart from set/get methods in config db.
+
+[7] Difference between uvm tlm fifo and uvm tlm analysis fifo. How write functions are synchronized during comparing data transactions.
+
+[8] What is TLM 2.0 and how it is different from TLM 1.0. Use case of TLM 2.0
+
+[9] What is the role of Predictor in a Scoreboard. Why Agent has an analysis port within it. Role of Analysis port within a Driver.
+
+[10] How to model interrupts in UVM or an ISR.
+
+[11] How to implement user mode of arbitration in UVM. How transactions are processed in an arbitration queue.
+
+[12] Concept of response handler in UVM. Role of uvm barrier and uvm barrier pool and why are they needed.
+
+[13] How Sequential, Concurrent and Hierarchical Sequences are processed in UVM. How composition can be useful.
+
+[14] Different ways of assigning priority in sequence execution. What is a sequence library. Multi threaded behaviour of sequence.
+
+[15] How to bypass the priority of sequence if needed.
+
+[16] How to create a subenv within an env. How virtual sequence can control an sub env. What is the concept of layering.
+
+[17] How to develop reset synchronized driver. Importance of clockvar in driver code. Different blocking / nonblocking methods used in driver.
