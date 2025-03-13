@@ -162,20 +162,151 @@ module top;
     mem1=new(.addr(2));
     mem1.address=4'hF;
     mem1.print();
-    mem1.print_last_address();
+    mem1.print_last_address(); // MemTrans::print_last_address();
   end
 endmodule
 ```
 
 Q7)Given the following code, complete the function print_all in class MemTrans to print out data_in and address using the class PrintUtilities . Demonstrate using the function print_all .
 
-
 ![](assets/20250312_125558_image.png)
 
+```
+class PrintUtilities;
+  function void print_4(input string name, input [3:0] val_4bits);
+    $display("%t: %s=%h",$time, name, val_4bits);
+  endfunction
+  function void print_8(input string name, input [7:0] val_8bits);
+    $display("%t: %s=%h",$time, name, val_8bits);
+  endfunction
+endclass
 
+class MemTrans;
+  bit[7:0] data_in;
+  bit [3:0] address;
+  PrintUtilities print;
+  function new();
+    print=new();
+    data_in=8'd5;
+    address=4'd3;
+  endfunction
+  function void print_all();
+    print.print_4("address",address);
+    print.print_8("data",data_in);
+  endfunction
+endclass
+module top;
+initial begin
+  MemTrans m1=new();
+  m1.print_all();
+end
+endmodule
+```
 
 Q8)
 
-Q9)
+```
+package my_package;
+class PrintUtilities;
+  function void print_4(input string name, input [3:0] val_4bits);
+    $display("%t: %s=%h",$time, name, val_4bits);
+  endfunction
+  function void print_8(input string name, input [7:0] val_8bits);
+    $display("%t: %s=%h",$time, name, val_8bits);
+  endfunction
+endclass
+
+class MemTrans;
+  bit[7:0] data_in;
+  bit [3:0] address;
+  PrintUtilities print;
+  function new();
+    print=new();
+    data_in=8'd5;
+    address=4'd3;
+  endfunction
+  function void print_all();
+    print.print_4("address",address);
+    print.print_8("data",data_in);
+  endfunction
+endclass
+endpackage
+
+program automatic test;
+  import my_package::*;
+initial begin
+  MemTrans m[5];
+  generator(m);
+  foreach(m[i])begin
+    $display("handle values=%d",m[i]);
+    $display("object at handle=%p",m[i]);
+    end
+end
+  task generator(ref MemTrans array[5]);
+    foreach(array[i])begin
+      array[i]=new();
+      transmit(array[i]);
+    end
+  endtask
+  task transmit(MemTrans tr);
+  
+  endtask
+endprogram
+```
+
+Q9) Deep Copy
+
+```
+package automatic my_package;
+
+	class Stastistics;
+      int graph;    
+      function new();
+        graph=37;
+      endfunction
+      function Stastistics copy();
+        copy=new();
+        copy.graph=graph;
+        return copy;
+      endfunction
+    endclass
+
+	class MemTrans;
+      bit [7:0] data_in;
+      bit [3:0] address;
+      Stastistics stats;
+      function new();
+      	data_in=3;
+      	address=5;
+      	stats=new();      
+      endfunction
+      function MemTrans copy();
+        copy=new();
+        copy.data_in=data_in;
+        copy.address=address;
+        copy.stats=stats.copy();
+        return copy;
+      endfunction
+    endclass
+endpackage
+module top;
+  import my_package::*;
+  initial begin
+    MemTrans m1,m2;
+    m1=new();
+    m2=new();
+    $display("M1 Address=%d Data=%d graph=%d",m1.address,m1.data_in,m1.stats.graph);
+    $display("M2 Address=%d Data=%d graph=%d",m2.address,m2.data_in,m2.stats.graph);
+    m2.address=7;
+    m2.data_in=8;
+    m2.stats.graph=24;
+    $display("M1 Address=%d Data=%d graph=%d",m1.address,m1.data_in,m1.stats.graph);
+    $display("M2 Address=%d Data=%d graph=%d",m2.address,m2.data_in,m2.stats.graph);
+    m1=m2.copy();
+    $display("M1 Address=%d Data=%d graph=%d",m1.address,m1.data_in,m1.stats.graph);
+    $display("M2 Address=%d Data=%d graph=%d",m2.address,m2.data_in,m2.stats.graph);
+  end
+endmodule
+```
 
 Chapter:
