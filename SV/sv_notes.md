@@ -139,6 +139,20 @@ Typical TB use, foreach(payload[i]) begin @(negedge clk iff(!suspend)) data_out 
 
 wildcard equality/inequality operator, inside operator
 
+case, casex, casez, ==, ===, ==?, !=?
+
+casez: consider ?/z as dont care
+
+casez: consider ?/z/x as dont care
+
+==: if any operands contain x/z output goes to x
+
+===: operands can have x/z
+
+==?: treat x/z in operands as dont care
+
+!=?:
+
 ### OOPS
 
 When to use virtual vs pure virtual?
