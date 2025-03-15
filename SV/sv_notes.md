@@ -153,6 +153,10 @@ casez: consider ?/z/x as dont care
 
 !=?:
 
+Packing Objects to and from Arrays Using Streaming Operators:<< and >> operator. Refer 5.15.4 from chris spears
+
+Assignment operator, pre-post incre/decre opr(++a, a++), equivalence(==,===,==?,!=?), membership opr(inside), <<(shift)/<<<(shift with sign)
+
 ### OOPS
 
 When to use virtual vs pure virtual?
@@ -171,4 +175,6 @@ Shallow Copy vs Deep Copy
 | ![assignment vs shallow copy](https://verificationguide.com/images/systemverilog/class/assignment_vs_shallow_copy.png) | ![SystemVerilog Shallow Copy Limitation](https://verificationguide.com/images/systemverilog/class/limitaion_of_sahllow_copy.png) | ![SystemVerilog Deep Copy](https://verificationguide.com/images/systemverilog/class/deep_copy_systemverilog.png) |
 |                                                                                                                        |                                                                                                                                  |                                                                                                                  |
 
-Packing Objects to and from Arrays Using Streaming Operators:<< and >> operator. Refer 5.15.4 from chris spears
+### User Defined Data Types and Structures
+
+typedef, emun, structs, union, packages
