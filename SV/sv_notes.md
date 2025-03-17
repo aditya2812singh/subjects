@@ -178,3 +178,95 @@ Shallow Copy vs Deep Copy
 ### User Defined Data Types and Structures
 
 typedef, emun, structs, union, packages
+
+Structure (struct) types to bundle multiple variables into one object. uniontypes to store different data types in the same space.
+
+ENUMS:
+
+```
+typedef enum{idle, start,pause, done} state_t; //Default base type of an enum is int.
+state_t state, next_state;
+//----
+state =idle; //LEGAL
+ state =next_state; //LEGAL
+ state =2'b00; //ILLEGAL
+ state =2; //ILLEGAL
+ state =state_t'(2); //LEGAL i.e.  type_name’(value)
+//----
+typedef enum{go, R[3:5],stop}seqb_t;
+EQIVALENT TO
+typedef enum{go, R3,R4,R5, stop}seqb_t;
+//----
+
+```
+
+Initial value of an enum variable depends on its base type:0 for default int type and any explicit 2-state type. X for an explicit 4-state type.
+
+![](assets/20250316_223916_image.png)
+
+STRUCTURES:
+
+```
+typedef struct {
+ logic id, par;
+ logic[3:0]addr;
+ logic[7:0]data;
+ }frame_t;
+ frame_t f1, two_frame[1:0];
+ logic[7:0] data_in;
+ ...
+ // individual field access
+ f1.id= 1'b1;
+ data_in =f1.data;
+ // ordered assignment pattern
+ f1= '{1'b1,1'b1,4'h0,8'hff};
+ // named assignment pattern
+ f1= '{id:0,par:1, addr:0, data:0};
+ // nested ordered assignment pattern
+ two_frame = '{'{0,0,0,255}, '{1,1,1,0}};
+// assignment by order
+ f1= '{1'b0,1'b0,12, 8'hff};
+ // assignment by name
+ f1= '{data:8'hff,addr:12, par:0, id:1};
+ // assignment by name and type
+ f1= '{data:8'hff,addr:12, logic:0};
+ // assignment by name, type & default
+ f1= '{data:8'hff,logic:1, default:0};
+
+```
+
+PACKED STRUCTURE:
+
+Packed Structure fields are packed together in memory without gaps and can be used as a whole with arithmetic and logical operators. All fields must be “packable”: 1. Integral values only. 2. Any field that is array or structure must also be packed.
+
+A packed structure can be treated as a one dimensional vector. If any field is 4-state, then the whole structure is stored as 4-state. Conversionsare doneautomaticallyuponread/write.
+
+![](assets/20250316_224700_image.png)
+
+In general, you should avoid mixing 2-state types like bitand 4-state types like logicin a structure declaration. Mixing the types means the entire structure is stored as a 4-state type, but automatic conversion to 0or 1is carried out when a 2-state field is accessed. If you wrote Xinto a 4-state field and shifted the value into a 2-state field, the packed structure will still be storing an Xin the 2-state field, but it would be read as a 0.
+
+NEW TYPE DECLERATION REGION:
+
+SystemVeriloghas two new name spaces: 1. Packages 2. Compilation Unit Scope(CUS)-should be avoided
+
+```
+ packagemytypes;
+ typedefenum{start,done}mode_t;
+ ...
+ endpackage :mytypes
+
+ //BETTER WAY TO USE
+ module mtwoimport mytypes::*;(
+ inputlogic[7:0]out,
+ outputmode_tmode);
+ ...
+
+ typedefenum{start,done}mode_t; //THIS SHOULD BE AVOIDED
+ module mone(
+ input mode_tmode,
+ outputlogic[7:0]out);
+ ...
+
+```
+
+### HIERARCHY & CONNECTIVITY:
