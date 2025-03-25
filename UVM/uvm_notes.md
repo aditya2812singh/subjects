@@ -1,3 +1,49 @@
+### **Intro**
+
+Below are the most important concepts that are needed to understand the role of "OOP" in SV or UVM which are missing in Verilog.
+
+[1] What is Class and Object? Difference between handle and Object.
+
+[2] How memory allocation and deallocation is performed in Class. Difference b/w C pointer and SV object handle.
+
+[3] What is the use of constructor and how does constructor chaining is achieved.
+
+[4] How accidental overriding of base class methods are avoided.
+
+[5] Difference between Shallow copy and Deep copy. What are the things can be copied in Shallow Copy.
+
+[6] What is this construct in Class. What are Static methods in Class.
+
+[7] What is Inheritance. Difference between Multilevel and Multiple Inheritance. How does Data hiding property in Class is achieved.
+
+[8] How does Class extension can be restricted so that no subclass can inherit a parent class.
+
+[9] Difference b/w Static and Dynamic Casting. Application of casting in subclass and Superclass.
+
+[10] How a Class can be made read only. What are Virtual methods in Class.
+
+[11] Concept of Polymorphism and Abstract Class. What is an Interface Class and what it is used for.
+
+[12] How scope resolution operator is useful in accessing the static variables in the class.
+
+[13] Use of parameterised classes and when it is used. Default value of class constructor and its purpose.
+
+[14] How does Class allows access to the object during automatic garbage collection and what method needs to be used during that time.
+
+[15] Concept of memory management and weak memory references. Code reachability.
+
+[16] What is the role of composition in class.
+
+[17] Concept of class Aggregation.
+
+[18] Role of pure virtual methods and how to use it.
+
+[19] Can virtual class be extended from non virtual class.
+
+[20] Difference between an extend and implement.
+
+[21] Concept of upcasting and downcasting. Which one is allowed and why.** **
+
 ### Question to Cover:BASIC
 
 [1] Concept of virtual interface and how it can connect DUT with an Verification Env. What is a Test harness.
@@ -12,7 +58,7 @@
 
 [6] Difference between uvm_object and uvm_component. Classification of uvm_object.
 
-[7] TLM interconnection in UVM. Role of producer and consumer. Concept of pull port and pull import.** **
+[7] TLM interconnection in UVM. Role of producer and consumer. Concept of pull port and pull import.
 
 [8] Difference between export and imp connection. Different types - port to port, port to export, port to imp, export to export, etc.
 
@@ -39,7 +85,6 @@
 [19] How a sequence can be started - Execution flow.
 
 [20] How to raise and drop Objection in UVM. Why drain time is needed.
-
 
 ### Question to Cover:Intermediate
 
