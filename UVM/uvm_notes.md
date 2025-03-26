@@ -121,3 +121,139 @@ Below are the most important concepts that are needed to understand the role of 
 [16] How to create a subenv within an env. How virtual sequence can control an sub env. What is the concept of layering.
 
 [17] How to develop reset synchronized driver. Importance of clockvar in driver code. Different blocking / nonblocking methods used in driver.
+
+
+### Sougata Bhatacharjee LinkedIN
+
+**There are multiple components and objects which build the UVM testbench hierarchy. Among them, one important block is Agent which has three components Sequencer, Driver and Monitor.Below concepts are useful in learning the structure in detail:**
+
+✓ Sequencer <--> Driver handshaking mechanism for
+a. Only for req Id.
+b. Both req and RSP
+c. Pipelined and Non Pipelined access
+d. Wait States
+
+✓ Use of Non blocking assignment in Driver logic code why?
+
+✓ How to use clockvar in Driver.
+
+✓ Configuration mechanism in Driver. Can we use UVM resource db.
+
+✓ Factory registration and factory override.
+
+✓ Use of function new()
+
+✓ How to start a sequence item and randomize.
+
+✓ How to handle multiple sequence item through Sequencer --> Use of arbitration algorithm.
+
+✓ How to handle interrupts
+
+✓ What is user arbitration and need of it
+
+✓ Use of analysis port and TLM port. How to connect analysis port to subscribers.
+
+✓ Different types of Port export connection.
+
+✓ Use of p / m sequencer.
+
+✓ How write function needs to be implemented.
+
+✓ Difference b/w active and passive agent.
+
+✓ Why Monitor uses new() instead of create method.
+
+✓ Difference b/w TLM1.0 and TLM2.0
+
+Range of useful topics and questions related to UVM for ASIC Verification in VLSI - Part 2
+
+[1] What are the differences between Analysis port and TLM port. Can we use analysis port for sequencer / Driver interaction and TLM port for Monitor / Scoreboard interaction. Is it possible.
+
+[2] Difference between UVM Object and UVM component. How many minimum no. of Tasks, Function and Classes are required to build a testbench infrastructure (approximate)
+
+[3] Objection in UVM. How to raise and drop objection in UVM. What is drain time. Different callbacks in objection control.
+
+[4] How multiple sequences can be connected to a single Driver and how to control stimulus on multiple drivers.
+
+[5] Difference between start_item / finish_item and `uvm_do and which one to choose for sequence item. What is late randomization.
+
+[6] What is set_id_info and Cloning and why they are required. What are the different ways through which sequencer and driver interact with each other.
+
+[7] What are the different Arbitration algorithms in UVM. What is user arbitration.
+
+[8] What is the significance of grab() and lock() methods in UVM. How interrupts can be controlled. How to implement a ISR in UVM.
+
+[9] What is the difference between Generator and a Driver. Can they be interchanged and be implemented with the help of Mailboxes.
+
+[10] Configuration mechanism in UVM. Difference between uvm_config_db and uvm_resource_db and what are the different methods associated with it.
+
+[11] What is Factory registration. Difference between set type / set instance override.
+
+[12] What are Virtual Sequencer and Virtual sequences and what are their usage.
+
+[13] How the scoreboard needs to be modelled to handle in order and out of order data comparison.
+
+[14] How to model a Driver for pipelined and non pipelined access.
+
+.......................................
+
+[1] UVM Phasing Mechanism and how it executes. What is the role of reset, configure, main and shutdown phase of run phase.
+
+[2] Which Phases are categorised into task and function. Which Phases are divided into top down and bottom up approach.
+
+[3] Conditions and need to introduce domain Synchronisation and Phase jumping in UVM Phasing Mechanism.
+
+[4] Role of run_test in top module and its importance. Why UVM is called a DAC and role of uvm_root.
+
+[5] Difference b/w physical and Virtual interface. How VIF actually works in UVM and how it flows in testbench hierarchy.
+
+[6] Generic role of UVC's like Driver, Monitor, Scoreboard, etc.
+
+[7] What is Configuration in UVM. Difference b/w uvm_config_db and uvm_resource_db.
+
+[8] Sequencer to Driver handshaking mechanism flow for unidirectional, Bidirectional and Pipelined transfer.
+
+[9] Difference between uvm_component, uvm_object and uvm_transaction. What will happen if we don't use component and object utils macro.
+
+[10] What is Factory registration in UVM. Concept of factory override and it's different type.
+
+[11] Difference between TLM port and analysis port. Difference between port, export and imp. What are hierarchical exports.
+
+[12] Objection mechanism in UVM and importance raise and drop objection.
+
+[13] Sequence item flow and how to start a test / sequence. How to create a library of sequence.
+
+[14] Why Driver run phase uses only nonblocking assignment and not blocking.
+
+[15] How UVM handle race conditions and detect them.
+
+
+### UVM TLM QUESTIONS:
+
+1️⃣ What is TLM?
+2️⃣ How is TLM better than a mailbox-based connection?
+3️⃣ What is the difference between the Push and Pull models?
+4️⃣ What are port, implementation, and export, and how do they differ?
+5️⃣ Explain bidirectional communication in TLM with an example.
+6️⃣ How does the driver-sequencer TLM connection work?
+7️⃣ Where do we use put and get methods in TLM communication?
+8️⃣ How is the analysis model different from the push model in TLM?
+9️⃣ What base class is used for implementing coverage class, and how does it connect to the monitor?
+🔟 What base class is used for implementing a scoreboard, and how does it connect to multiple monitors?
+1️⃣1️⃣ Why is `uvm_sequence_item` used for implementing transactions between driver and sequencer instead of `uvm_transaction`?
+1️⃣2️⃣ How do we give response transactions from driver to sequencer?
+1️⃣3️⃣ What is the difference between blocking and non-blocking communication models in TLM?
+1️⃣4️⃣ Explain the UVM analysis model using an example.
+1️⃣5️⃣ How many connection models are there in driver-sequencer connections?
+
+In a recent interview, I was asked whether an Analysis Port can be used instead of a TLM Port in UVM. It's an interesting question, so let's break it down!
+
+🚀 Key Differences:
+✅ TLM Ports (uvm_tlm_*_port) → Used for direct communication (one-to-one), allowing request-response mechanisms like put(), get(), and transport().
+✅ Analysis Ports (uvm_analysis_port) → Used for broadcasting transactions (one-to-many), typically in monitors, scoreboards, and coverage collectors.
+
+🔍 Why Analysis Port CANNOT Replace TLM Port:
+❌ No Response Handling: Unlike TLM ports, analysis ports support only write(), meaning they can send data but can't receive responses.
+❌ One-to-Many Broadcast: Analysis ports are designed for broadcasting, while TLM ports ensure one-to-one communication, crucial for driver-sequencer interactions.
+❌ Limited Use Cases: Analysis ports are ideal for functional coverage and checking but cannot drive DUT stimulus like a sequencer-driver connection.
+🔥 Conclusion: Analysis Ports are powerful for broadcasting transactions but cannot replace TLM ports where direct, bidirectional communication is needed. Choose the right port based on the use case!
