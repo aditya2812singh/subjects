@@ -66,3 +66,51 @@ Above are some of the very basic steps mentioned but ideally the testbench will 
 ✓ Config and resource db
 ✓ Coverage
 ✓ Assertions
+
+
+
+
+//.................HOW TO STUDY UVM.....................................
+UVM emerged as a preferred Verification language since last several years along with SystemVerilog, Python, Verilog, OVM as the other alternatives depending on the kind of project and execution style.
+
+There are multiple ways as how UVM can be learnt from the scratch and few points are mentioned below:
+
+[1] Download UVM 1.2 accellera user guide and go through it thoroughly to understand the below concepts.
+
+a. TLM understanding, Port export connection and difference b/w TLM1 and TLM2
+
+b. Transaction class and how to model it. Understanding of respective UVC's like Driver, Monitor, Sequencer, Scoreboard, Agent, Sequencer Driver interaction. Verification environment understanding and related coding of UVC
+
+c. Configuration mechanism and it's requirement, Test writing.
+
+d. Register Access Layer and it's usefulness in accessing registers.
+
+e. UVM Testbench infrastructure understanding, communication b/w each component and object. UVM phasing mechanism.
+
+[2] Download the UVM cookbook from verification academy and also go through the related concepts like
+
+a. UVM TB development and run test mechanism.
+b. Objection control mechanism and analysis components.
+c. Sequencer and Sequences.
+d. Modelling style of UVC.
+e. Sequence writing.
+f. Different types of scoreboard implementation.
+g. RAL
+
+[3] The next step is to put all the learning into practice. Take any simple IP like a memory controller or a FIFO and try to build a Verification environment. You can use edaplayground to test the code and one can also take the help of opencores webpage for any other project.
+
+***
+How to code a verification env in UVM from scratch will be covered in next post
+
+****
+
+[4] Once the basics and fundamentals are clear, the next step is to learn further. For that download "The UVM class reference manual" and can have a look at following topics:
+
+a. UVM barriers.
+b. UVM domain, phase jumping, run time phases, user defined phases.
+c. Classes related to synchronization, triggering, etc.
+d. UVM resource db.
+e. Other classes that can be used to build TB framework.
+f. UVM callbacks
+
+[5] As a next step to enhance the learning someone needs to go through research papers, papers published in conferences, discussing with colleagues and mentors, etc.
