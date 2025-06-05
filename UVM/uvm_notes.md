@@ -257,3 +257,62 @@ In a recent interview, I was asked whether an Analysis Port can be used instead 
 ❌ One-to-Many Broadcast: Analysis ports are designed for broadcasting, while TLM ports ensure one-to-one communication, crucial for driver-sequencer interactions.
 ❌ Limited Use Cases: Analysis ports are ideal for functional coverage and checking but cannot drive DUT stimulus like a sequencer-driver connection.
 🔥 Conclusion: Analysis Ports are powerful for broadcasting transactions but cannot replace TLM ports where direct, bidirectional communication is needed. Choose the right port based on the use case!
+
+There are multiple reasons why Verification is performed through SystemVerilog / UVM instead of Verilog. But among them, one of the prime reasons is that, Verilog used as a Static testbench and SV used in Dynamic testbenches that is based on OOP concept.
+
+There are range of concepts that are required to understand OOP and some of them are noted below:
+
+[1] What is Class and Object? Difference between handle and Object.
+
+[2] How memory allocation and deallocation is performed in Class. Difference b/w C pointer and SV object handle.
+
+[3] What is the use of constructor and how does constructor chaining is achieved.
+
+[4] How accidental overriding of base class methods are avoided. 
+
+[5] Difference between Shallow copy and Deep copy. What are the things can be copied in Shallow Copy.
+
+[6] What is this construct in Class. What are Static methods in Class.
+
+[7] What is Inheritance. Difference between Multilevel and Multiple Inheritance. How does Data hiding property in Class is achieved.
+
+[8] How does Class extension can be restricted so that no subclass can inherit a parent class.
+
+[9] Difference b/w Static and Dynamic Casting. Application of casting in subclass and Superclass.
+
+[10] How a Class can be made read only. What are Virtual methods in Class.
+
+[11] Concept of Polymorphism and Abstract Class. What is an Interface Class and what it is used for.
+
+[12] How scope resolution operator is useful in accessing the static variables in the class.
+
+[13] Use of parameterised classes and when it is used. Default value of class constructor and its purpose.
+
+[14] How does Class allows access to the object during automatic garbage collection and what method needs to be used during that time.
+
+[15] Interface class and how it helps in multiple inheritance.
+
+[16] Diamond problem and how to solve the issue.
+
+[17] Concept of composition and aggregation in class. What is a Singleton class.
+
+********
+
+[18] Different Design pattern in class:
+
+a. Builder Method Design Pattern
+b. Factory Method Pattern
+c. Singleton Pattern
+d. Observer Pattern
+e. Prototype Pattern
+
+******
+
+[19] Difference between static and dynamic casting.
+
+[20] Memory Management in OOP. Objects reachability - Strongly reachable and Weakly reachable.
+
+[21] Use of super keyword in a class. How to override members of class.
+
+[22] What are local and protected members of class. Use of static methods.
+
